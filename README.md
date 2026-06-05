@@ -28,12 +28,7 @@ Develop a highly accurate, lightweight, and entirely offline facial recognition 
 ### Offline Liveness Detection
 
 * Head movement challenge-response verification
-* Detects:
 
-  * Look Left
-  * Look Right
-  * Look Up
-* Prevents spoofing using static photographs
 
 ### Lightweight Architecture
 
@@ -159,6 +154,9 @@ Authentication Success
 offline-face-authentication
 
 
+│   ├── .idea
+│   ├── app
+│   ├── gradle
 │   ├── NHAI_yolo.ipynb
 │   ├── build.grade.kts
 │   ├── gradle.properties
