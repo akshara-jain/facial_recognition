@@ -1,5 +1,6 @@
 plugins {
   alias(libs.plugins.android.application)
+  alias(libs.plugins.kotlin.android)
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.kotlin.serialization)
   alias(libs.plugins.ksp)
@@ -67,7 +68,7 @@ dependencies {
   implementation(libs.androidx.compose.ui)
   implementation(libs.androidx.compose.ui.tooling.preview)
   implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.material.icons.extended)
+    implementation(libs.androidx.compose.material.icons.core)
     implementation(libs.androidx.compose.material.icons.extended)
   // Tooling
   debugImplementation(libs.androidx.compose.ui.tooling)
@@ -102,6 +103,9 @@ dependencies {
   // MediaPipe
   implementation(libs.mediapipe.tasks.vision)
 
+  // TensorFlow Lite
+  implementation(libs.tensorflow.lite)
+  implementation(libs.tensorflow.lite.support)
 
   // Room Database
   implementation(libs.room.runtime)

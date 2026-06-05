@@ -64,7 +64,7 @@ import com.example.facialverificationapp.ai.LivenessListener
 import com.example.facialverificationapp.ai.YoloDetector
 import com.example.facialverificationapp.ui.camera.BoundingBoxOverlay
 import com.example.facialverificationapp.ui.camera.CameraPreview
-import com.google.mediapipe.tasks.vision.facelandmarker.NormalizedLandmark
+import com.google.mediapipe.tasks.components.containers.NormalizedLandmark
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

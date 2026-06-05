@@ -8,8 +8,7 @@ import com.google.mediapipe.tasks.core.BaseOptions
 import com.google.mediapipe.tasks.vision.core.RunningMode
 import com.google.mediapipe.tasks.vision.facelandmarker.FaceLandmarker
 import com.google.mediapipe.tasks.vision.facelandmarker.FaceLandmarkerResult
-import com.google.mediapipe.tasks.vision.facelandmarker.NormalizedLandmark
-import kotlin.math.pow
+import com.google.mediapipe.tasks.components.containers.NormalizedLandmark
 import kotlin.math.sqrt
 
 enum class LivenessChallenge {
@@ -181,14 +180,28 @@ class LivenessDetector(
         return if (horizDist > 0f) vertDist / horizDist else 0f
     }
 
-    private fun calculateDistance2D(p1: NormalizedLandmark, p2: NormalizedLandmark): Float {
-        return sqrt((p1.x() - p2.x()).pow(2) + (p1.y() - p2.y()).pow(2))
+    private fun calculateDistance2D(
+        p1: NormalizedLandmark,
+        p2: NormalizedLandmark
+    ): Float {
+
+        val dx = p1.x() - p2.x()
+        val dy = p1.y() - p2.y()
+
+        return sqrt(dx * dx + dy * dy)
     }
 
-    private fun calculateDistance3D(p1: NormalizedLandmark, p2: NormalizedLandmark): Float {
-        return sqrt((p1.x() - p2.x()).pow(2) + (p1.y() - p2.y()).pow(2) + (p1.z() - p2.z()).pow(2))
-    }
+    private fun calculateDistance3D(
+        p1: NormalizedLandmark,
+        p2: NormalizedLandmark
+    ): Float {
 
+        val dx = p1.x() - p2.x()
+        val dy = p1.y() - p2.y()
+        val dz = p1.z() - p2.z()
+
+        return sqrt(dx * dx + dy * dy + dz * dz)
+    }
     fun close() {
         faceLandmarker?.close()
         faceLandmarker = null

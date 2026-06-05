@@ -54,6 +54,7 @@ import com.example.facialverificationapp.ai.LivenessDetector
 import com.example.facialverificationapp.ai.YoloDetector
 import com.example.facialverificationapp.ui.camera.BoundingBoxOverlay
 import com.example.facialverificationapp.ui.camera.CameraPreview
+import com.google.mediapipe.tasks.components.containers.NormalizedLandmark
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -96,7 +97,7 @@ fun RegisterScreen(
         LivenessDetector(context, object : com.example.facialverificationapp.ai.LivenessListener {
             override fun onChallengeChanged(newChallenge: com.example.facialverificationapp.ai.LivenessChallenge) {}
             override fun onLivenessPassed() {}
-            override fun onLandmarksDetected(landmarks: List<com.google.mediapipe.tasks.vision.facelandmarker.NormalizedLandmark>) {}
+            override fun onLandmarksDetected(landmarks: List<NormalizedLandmark>) {}
             override fun onError(error: String) {}
         })
     }
